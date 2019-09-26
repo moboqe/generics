@@ -1,4 +1,98 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Перегрузка_и_Шаблоны_функций
+{
+   
+    /*public class NowTime
+    {
+        Time2 tm = new Time2 { H = Convert.ToInt16(DateTime.Now.Hour), Min = Convert.ToInt16(DateTime.UtcNow.Minute), Sec = Convert.ToInt16(DateTime.UtcNow.Second) };        
+        
+        public NowTime() 
+        { 
+        }
+        public NowTime(Time2 tm) : this()
+        {
+            this.tm.H = tm.H;
+            this.tm.Min = tm.Min;
+            this.tm.Sec = tm.Sec; 
+        }
+        public NowTime(short h, short m) : this()
+        {
+            this.tm.H = h;
+            this.tm.Min = m;
+        }
+        public NowTime(short h, short m, short s) : this()
+        {
+            this.tm.H = h;
+            this.tm.Min = m;
+            this.tm.Sec = s; 
+        }*/
+
+   
+    
+   public class Program
+    {
+       public struct Time2
+       {
+           public short H;
+           public short Min;
+           public short Sec;
+       }
+       static void ShowTime(int hour, int minute, int second)
+        {
+            Console.WriteLine("Часы {0}, Минуты {1}, Секунды {2}", hour, minute, second);
+
+        }
+        static void ShowTime(int hour, int minute)
+        {
+            Console.WriteLine("Часы {0}, Минуты {1}", hour, minute);
+
+        }
+        static void ShowTime(Time2 tm)
+        {
+            Console.WriteLine("Часы {0}, Минуты {1}, Секунды {2}", tm.H, tm.Min, tm.Sec);
+
+        }
+      /*   static void ShowNextMin(int hour, int minute, int second)
+        {
+            Console.WriteLine("Следующая минута {0}", (minute + 1));
+        }
+         static void ShowNextMin(int hour, int minute)
+       {
+           Console.WriteLine("Следующая минута {0}", (minute + 1));
+       }
+       static void ShowNextMin(Time2 tm)
+       {
+           Console.WriteLine("Следующая минута {0}", (tm.Min + 1));
+       }*/
+       TypeOfData ReadField<TypeOfData>(string FieldName)
+        {
+            TypeOfData result;// = default(TypeOfData);
+            //Что-то делаем.
+            return result;
+        }
+        T ShowNextMin<T>(T tm1) where T:int
+        {
+            tm1 += 1;
+            return tm1=tm1+1;
+        }
+
+        static void Main(string[] args)
+        {
+            Time2 st = new Time2 { H = Convert.ToInt16(DateTime.Now.Hour), Min = Convert.ToInt16(DateTime.Now.Minute), Sec = Convert.ToInt16(DateTime.Now.Second) };
+
+            ShowNextMin(1,2,3);
+            ShowNextMin(1,2);
+            ShowNextMin(st);
+            Console.ReadKey();
+        }
+    }
+}
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
